@@ -37,12 +37,12 @@ responses (lista de respuestas posibles a devolver).
 Cada uno de los patterns son procesados y categorizados según su tag. Luego se construyen vectores one-hot encoding tanto para el bag of words como para las categorías (tags).
 A continuación se construye un modelo con dos capas densas y se entrena con 200 épocas.
 
-.. image:: ejercicio\ 2/train.png
+.. image:: ejercicio%202/train.png
 
 En la última sección se prueba el modelo entrenado mediante entradas del usuario, las cuales son convertidas a vectores one-hot encoding para luego inferir su categoría.
 En base a este resultado se devuelve una respuesta de las provistas en el  listado del campo responses.
 
-.. image:: ejercicio\ 2/result.png
+.. image:: ejercicio%202/result.png
 
 
 Ejercicio 3 (Word embedding)
@@ -70,7 +70,7 @@ Las pruebas realizadas se efectuaron para buscar términos similares y diferente
 
 Por último se implementó con la herramienta TSNE la visualización del espacio de embedding, tal como se muestra en la figura. 
 
-.. image:: ejercicio\ 3/tsne_plot.png
+.. image:: ejercicio%203/tsne_plot.png
 
 Ejercicio 4 (Predicción de próxima palabra)
 ===========================
@@ -85,11 +85,11 @@ Implementación
 Se lee el archivo txt con el dataset y obtiene los tokens para luego armar las secuencias de largo 4 (incluyendo las 3 palabras de entrada y la palabra de salida).
 Luego se crean los vectores de palabras para traducir las secuencias de texto a secuencias de números y se lleva a categorías a las palabras de salidas para poder entrenar el modelo. 
 
-.. image:: ejercicio\ 4/model.png
+.. image:: ejercicio%204/model.png
 
 El resulado del entrenamiento presenta un gran overfitting y los resultados reflejan esta falla.
 
-.. image:: ejercicio\ 4/train.png"
+.. image:: ejercicio%204/train.png"
 
 A continuación se pueden ver algunos ejemplos probados, donde las 3 primeras palabras fueron ingresadas y la 4 es la predicha por el modelo:
 
@@ -151,21 +151,21 @@ El dataset es dividido en train y validation antes de iniciar los entrenamientos
 Entrenamiento con Embeddings + LSTM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ejercicio\ 5/model1.png
+.. image:: ejercicio%205/model1.png
 
 El entrenamiento arroja un overfit grande, tal como se visualiza en la diferencia de las curvas de train y validation en esta figura.
 
-.. image:: ejercicio\ 5/model1-train.png
+.. image:: ejercicio%205/model1-train.png
 
 
 Entrenamiento con Embeddings Fasttext + LSTM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 En este caso se emplea un embeddings existente, limitándolo a la cantidad de las palabras definidas en el vocabulario. Por tal motivo se evita entrenar el Embeddings.
-.. image:: ejercicio\ 5/model2.png
+.. image:: ejercicio%205/model2.png
 
 En este caso también se genera un gran overfit con un bajo accuracy.
 
-.. image:: ejercicio\ 5/model2-train.png
+.. image:: ejercicio%205/model2-train.png
 
 
 Ejercicio 6 (Bot conversacional)
@@ -199,12 +199,12 @@ En cada una de las entradas del dataset en formato JSON se disponen los campos:
 
 Se lleva adelante el preprocesamiento de los datos como en los ejercicios previos y se incorpora el embeddings de Fasttext limitado a una dimensión de 300. Luego se entrenan el modelo encoder-decoder.
 
- .. image:: ejercicio\ 6/model1.png
+ .. image:: ejercicio%206/model1.png
 
 El entrenamiento refleja un nivel aceptable con overfitting marcado. 
 
- .. image:: ejercicio\ 6/train.png
+ .. image:: ejercicio%206/train.png
 
 Las pruebas reflejan el error mencionado.
 
- .. image:: ejercicio\ 6/result.png
+ .. image:: ejercicio%206/result.png
