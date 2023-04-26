@@ -2,21 +2,22 @@
 Procesamiento natural del lenguaje
 ******************
 
-UBA-CEIA 2023
-Materia: Procesamiento natural del lenguaje
-Profesor: Rodrigo Cárdenas
-Alumno: Fux, Santiago Javier (6ta Cohorte)
+- UBA-CEIA 2023  
+- Materia: Procesamiento natural del lenguaje  
+- Profesor: Rodrigo Cárdenas
+- Alumno: Fux, Santiago Javier (6ta Cohorte)
 
 En el presente documento se listan los desafíos llevados adelante durante la cursada de la materia Procesamiento Natural del Lenguaje
 durante los meses de marzo y abril de 2023.
 
 
-Ejercicio 1 (Vecotorización de texto)
+Ejercicio 1 (Vectorización de texto)
 ===========================
 Introducción
 -----------------------------
 El objetivo de este desafío es componer un corpus a partir de 3 documentos, obtener los términos y crear vectores con representaciones 
 one-hot encoding, frequency encoding y TF-IDF.  
+
 Por último se llevó adelante una comparativa mediante similitud coseno entre los documentos para cada tipo de representación. 
 
 Ejercicio 2 (Bot "simple")
@@ -29,17 +30,19 @@ de entrada enviado por el usuario. Dicho texto es comparado mediante similtud co
 Implementación
 -----------------------------
 Se utiliza la librería SpaCy-Stanza en español como pipeline para trabajar con los términos del dataset.
+
 El dataset está compuesto por un vector de intenciones. Cada una de ellas contiene los campos tag (categoría), patterns (lista de preguntas posibles a recibir) y 
 responses (lista de respuestas posibles a devolver).
+
 Cada uno de los patterns son procesados y categorizados según su tag. Luego se construyen vectores one-hot encoding tanto para el bag of words como para las categorías (tags).
 A continuación se construye un modelo con dos capas densas y se entrena con 200 épocas.
 
-.. image:: "ejercicio 2/train.png"
+.. image:: ejercicio\ 2/train.png
 
 En la última sección se prueba el modelo entrenado mediante entradas del usuario, las cuales son convertidas a vectores one-hot encoding para luego inferir su categoría.
 En base a este resultado se devuelve una respuesta de las provistas en el  listado del campo responses.
 
-.. image:: "ejercicio 2/result.png"
+.. image:: ejercicio\ 2/result.png
 
 
 Ejercicio 3 (Word embedding)
@@ -52,15 +55,22 @@ con el contenido de las letras de todas las canciones de la banda de róck argen
 Implementación
 -----------------------------
 Las letras son obtenidas de un archivo txt, el cual es filtrado y tokenizado debidamente. Luego se crea el modelo generador con un modelo Skipgram y se entrena con 100 épocas.
+
 Las pruebas realizadas se efectuaron para buscar términos similares y diferentes:
-- Similar a prisión: barbazul, cajita, pimpollos
+
+- Similar a prisión: barbazul, cajita, pimpollos.
+- 
 - Similar a vaca: aquella, bla, ta, cubana, teatro, disturbios, solitaria, etc.
+- 
 - Similar a negrita: asustada, brillar, hasta, mí, bandas, etc.
+- 
 - Similar a valija: carcajada, mejoría, gil, novedosa, etc.
+- 
 - Diferente a bares: deténganme, safó, shangai, chivato, etc.
 
-Por último se implementó con la herramienta TSNE la visualización del espacio de embedding, tal como se muestrae en la figura.  
-.. image:: "ejercicio 3/tsne_plot.png"
+Por último se implementó con la herramienta TSNE la visualización del espacio de embedding, tal como se muestra en la figura. 
+
+.. image:: ejercicio\ 3/tsne_plot.png
 
 Ejercicio 4 (Predicción de próxima palabra)
 ===========================
@@ -75,29 +85,41 @@ Implementación
 Se lee el archivo txt con el dataset y obtiene los tokens para luego armar las secuencias de largo 4 (incluyendo las 3 palabras de entrada y la palabra de salida).
 Luego se crean los vectores de palabras para traducir las secuencias de texto a secuencias de números y se lleva a categorías a las palabras de salidas para poder entrenar el modelo. 
 
-.. image:: "ejercicio 4/model.png"
+.. image:: ejercicio\ 4/model.png
 
 El resulado del entrenamiento presenta un gran overfitting y los resultados reflejan esta falla.
 
-.. image:: "ejercicio 4/train.png"
+.. image:: ejercicio\ 4/train.png"
 
 A continuación se pueden ver algunos ejemplos probados, donde las 3 primeras palabras fueron ingresadas y la 4 es la predicha por el modelo:
 
-::
-  dique que el nova
-  vamos negrita canta que
-  en este film muere
-  para alien duce voy
-  susanita tan bonita sin
-  miraba el cielo lavi
-  banderas en tu vudú
-  dice que el maté
-  todo un palo 
-  el pibe de tu
-  ciertos reyes no reyes
-  el infierno esta caro
-  quemando la turbina roto
-  a brillar mi me
+-  dique que el nova
+
+-  vamos negrita canta que
+
+-  en este film muere
+
+-  para alien duce voy
+
+- susanita tan bonita sin
+
+-  miraba el cielo lavi
+
+-  banderas en tu vudú
+
+-  dice que el maté
+
+-  todo un palo 
+
+-  el pibe de tu
+
+-  ciertos reyes no reyes
+
+-  el infierno esta caro
+
+-  quemando la turbina roto
+
+-  a brillar mi me
 
 
 Ejercicio 5 (Análisis de sentimientos)
@@ -129,21 +151,21 @@ El dataset es dividido en train y validation antes de iniciar los entrenamientos
 Entrenamiento con Embeddings + LSTM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: "ejercicio 5/model1.png"
+.. image:: ejercicio\ 5/model1.png
 
 El entrenamiento arroja un overfit grande, tal como se visualiza en la diferencia de las curvas de train y validation en esta figura.
 
-.. image:: "ejercicio 5/model1-train.png"
+.. image:: ejercicio\ 5/model1-train.png
 
 
 Entrenamiento con Embeddings Fasttext + LSTM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 En este caso se emplea un embeddings existente, limitándolo a la cantidad de las palabras definidas en el vocabulario. Por tal motivo se evita entrenar el Embeddings.
-.. image:: "ejercicio 5/model2.png"
+.. image:: ejercicio\ 5/model2.png
 
 En este caso también se genera un gran overfit con un bajo accuracy.
 
-.. image:: "ejercicio 5/model2-train.png"
+.. image:: ejercicio\ 5/model2-train.png
 
 
 Ejercicio 6 (Bot conversacional)
@@ -156,23 +178,33 @@ Con el mismo, se debe construir un BOT para responder a preguntas del usuario (Q
 Implementación
 -----------------------------
 En cada una de las entradas del dataset en formato JSON se disponen los campos:
+
 - dialog
+
 - start_time
+
 - end_time
+
 - bot_profile
+
 - user_profile
+
 - eval_score
+
 - profile_match
+
 - participant1_id
+
 - participant2_id
 
 Se lleva adelante el preprocesamiento de los datos como en los ejercicios previos y se incorpora el embeddings de Fasttext limitado a una dimensión de 300. Luego se entrenan el modelo encoder-decoder.
- .. image:: "ejercicio 6/model1.png"
+
+ .. image:: ejercicio\ 6/model1.png
 
 El entrenamiento refleja un nivel aceptable con overfitting marcado. 
 
- .. image:: "ejercicio 6/train.png"
+ .. image:: ejercicio\ 6/train.png
 
 Las pruebas reflejan el error mencionado.
 
- .. image:: "ejercicio 6/result.png"
+ .. image:: ejercicio\ 6/result.png
