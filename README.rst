@@ -89,7 +89,7 @@ Luego se crean los vectores de palabras para traducir las secuencias de texto a 
 
 El resulado del entrenamiento presenta un gran overfitting y los resultados reflejan esta falla.
 
-.. image:: ejercicio%204/train.png"
+.. image:: ejercicio%204/train.png
 
 A continuación se pueden ver algunos ejemplos probados, donde las 3 primeras palabras fueron ingresadas y la 4 es la predicha por el modelo:
 
